@@ -1,5 +1,6 @@
 # Link Clear
 
+[![F-Droid](https://img.shields.io/f-droid/v/app.linkclear)](https://f-droid.org/packages/app.linkclear/)
 [![Latest release](https://img.shields.io/github/v/release/kisst/link-clear?sort=semver)](https://github.com/kisst/link-clear/releases/latest)
 [![CI](https://github.com/kisst/link-clear/actions/workflows/ci.yml/badge.svg)](https://github.com/kisst/link-clear/actions/workflows/ci.yml)
 [![License: GPL v3](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
@@ -9,8 +10,10 @@ the bundled [ClearURLs](https://github.com/ClearURLs/Rules) ruleset. It works
 entirely offline by default: paste or share a link, get back the same link
 with tracking noise removed.
 
-**[Download the latest APK](https://github.com/kisst/link-clear/releases/latest)**
-(Android 8.0+), or see [installation options](docs/INSTALL.md).
+**[Get it on F-Droid](https://f-droid.org/packages/app.linkclear/)** — or
+**[download the latest APK](https://github.com/kisst/link-clear/releases/latest)**
+directly (Android 8.0+). See [installation options](docs/INSTALL.md) for
+Obtainium and sideloading.
 
 ## Surfaces
 
@@ -61,9 +64,10 @@ built with Jetpack Compose and Material 3.
 
 ## Install & build
 
-Link Clear targets Android 8.0+ (minSdk 26). Install a released build from
-F-Droid, sideload an APK, or build from source (JDK 17 + Android SDK 35, using
-the committed Gradle wrapper):
+Link Clear targets Android 8.0+ (minSdk 26). Install it from
+[F-Droid](https://f-droid.org/packages/app.linkclear/), sideload an APK, or
+build from source (JDK 17 + Android SDK 35, using the committed Gradle
+wrapper):
 
 ```bash
 ./gradlew :app:assembleDebug          # debug APK
@@ -72,6 +76,13 @@ the committed Gradle wrapper):
 
 Full instructions — prerequisites, release builds, instrumented tests, and
 troubleshooting — are in [`docs/INSTALL.md`](docs/INSTALL.md).
+
+F-Droid builds Link Clear from source and verifies the result is byte-for-byte
+reproducible against the APK published on GitHub Releases, then publishes it
+under the **developer signature** rather than its own key
+([reproducible builds, "Path 2"](docs/fdroid-metadata/README.md)). F-Droid,
+Obtainium, and manually sideloaded builds therefore share one signing key, so
+you can switch between them without uninstalling and reinstalling.
 
 ## Contributing
 
