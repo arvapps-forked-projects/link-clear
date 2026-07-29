@@ -5,12 +5,33 @@ released build or build it yourself from source.
 
 ## Install a released build
 
-### Obtainium (recommended)
+### F-Droid (recommended)
+
+Link Clear is published on F-Droid as
+[`app.linkclear`](https://f-droid.org/packages/app.linkclear/) — install it
+from any F-Droid client, and updates arrive through the client automatically.
+This is the project's primary distribution channel (see
+[ADR 0005](adr/0005-gpl3-and-fdroid-first.md)).
+
+F-Droid builds the app from source in its own build server and verifies the
+result is byte-for-byte reproducible against the APK attached to the matching
+GitHub Release. Because the rebuild matches, F-Droid publishes the APK under
+the **developer signing key** instead of its own
+([reproducible builds, "Path 2"](fdroid-metadata/README.md)). That means the
+F-Droid build, the GitHub release APK, and an Obtainium install all share one
+signature — you can move between them without uninstalling first.
+
+The build recipe used by F-Droid is mirrored in
+[docs/fdroid-metadata/](fdroid-metadata/), and the original submission plan is
+in [docs/fdroid-submission.md](fdroid-submission.md).
+
+### Obtainium
 
 [Obtainium](https://github.com/ImranR98/Obtainium) installs apps straight from
 their source — here, the GitHub Releases of this repo — and keeps them updated
-automatically. It's the recommended way to install today, and unlike a manual
-sideload it handles update notifications for you.
+automatically. Use it if you'd rather track GitHub Releases directly and pick
+up new versions as soon as they're tagged, without waiting for F-Droid's build
+and publish cycle.
 
 1. Install Obtainium (itself available from
    [F-Droid](https://f-droid.org/packages/dev.imranr.obtainium.fdroid/) or its
@@ -22,16 +43,9 @@ sideload it handles update notifications for you.
 
 Because every release APK is signed with the same key
 (see [ADR 0007](adr/0007-release-and-packaging.md)), Obtainium's update checks
-verify the signature stays consistent.
-
-### F-Droid
-
-F-Droid is the intended long-term distribution channel (see
-[ADR 0005](adr/0005-gpl3-and-fdroid-first.md)). It is **not yet published**
-there. Once it is, you'll be able to install it from any F-Droid client;
-F-Droid builds reproducibly from this repo and signs with its own key. The
-submission plan is documented in
-[docs/fdroid-submission.md](fdroid-submission.md).
+verify the signature stays consistent — and since F-Droid republishes that
+same signature, you can switch between Obtainium and F-Droid without
+reinstalling.
 
 ### Manual sideload
 
